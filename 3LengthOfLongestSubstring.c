@@ -1,5 +1,4 @@
 #include <string.h>
-#include <stdio.h>
 
 int lengthOfLongestSubstring(char* s)
 {
@@ -27,10 +26,3 @@ int lengthOfLongestSubstring(char* s)
     return maxLength;
 }
 
-void main()
-{
-    char* s = "";
-    int len = lengthOfLongestSubstring(s);
-    printf("%d\n", len);
-    return;
-}
