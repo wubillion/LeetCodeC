@@ -4,12 +4,16 @@
 //
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
+
 
 char* longestPalindrome(char* s)
 {
     char result[1001];
     int length = strlen(s);
+
     bool f[length][length];
+
     memset(f, false, sizeof(f));
     int maxLength = 1;
     int startPoint = 0;

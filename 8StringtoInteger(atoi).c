@@ -17,7 +17,7 @@ int myAtoi(char* str) {
     int flag = 1;
     int result = 0;
 
-    while (str[index] == '' && index<len)   { index++;  }
+    while (str[index] == ' ' && index<len)   { index++;  }
 
     if(str[index] == '+')   { index++;  }
     else if(str[index] == '-')
