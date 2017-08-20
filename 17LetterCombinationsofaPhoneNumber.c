@@ -13,7 +13,6 @@ char** letterCombinations(char* digits, int *returnSize) {
     const int dightLen = strlen(digits);
 
     char** result = (char**)malloc(sizeof(char*));
-    //char** result = "";
     result[0] = "";
     int top = 1;
     int index = 0;

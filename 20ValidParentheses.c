@@ -47,11 +47,3 @@ bool isValid(char* s) {
     return flag;
 }
 
-int main()
-{
-    bool ff = isValid("()");
-    if(ff)
-        printf("XXX");
-    else
-        printf("YYY");
-}
