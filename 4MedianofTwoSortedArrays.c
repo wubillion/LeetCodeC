@@ -26,6 +26,7 @@ int findKth(int* A, int m, int* B, int n, int k)
     else
         return *(A + flagA - 1);
 }
+
 double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size)     //int* 是数组首地址
 {
     int total = nums1Size + nums2Size;  //数组总个数
