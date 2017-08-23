@@ -8,6 +8,7 @@
 //
 #include <malloc.h>
 #include <limits.h>
+#include <stdio.h>
 
 struct ListNode
 {
@@ -20,12 +21,13 @@ struct ListNode
 //将当前值调节入
 void adjustTree(struct ListNode** lists, int listSize, int index)
 {
-    if(index > (listSize-1) / 2)
-        return;
-
     int resultIndex = 0;
     int leftIndex = index * 2 + 1;
     int rightIndex = index * 2 + 2;
+
+    if(leftIndex >= listSize)
+        return;
+
 
     int indexValue = lists[index]->val;
     int leftValue = lists[leftIndex]->val;
@@ -40,6 +42,7 @@ void adjustTree(struct ListNode** lists, int listSize, int index)
             lists[index] = lists[leftIndex];
             lists[leftIndex] = temp;
             resultIndex = leftIndex;
+            adjustTree(lists,listSize,resultIndex);
         }
 
     } else
@@ -50,9 +53,10 @@ void adjustTree(struct ListNode** lists, int listSize, int index)
             lists[index] = lists[rightIndex];
             lists[rightIndex] = temp;
             resultIndex = rightIndex;
+            adjustTree(lists,listSize,resultIndex);
         }
     }
-    adjustTree(lists,listSize,resultIndex);
+
 }
 
 
@@ -72,26 +76,36 @@ struct ListNode* mergeKLists(struct ListNode** lists, int listsSize)
 {
 
     struct ListNode* head = (struct ListNode*)malloc(sizeof(struct ListNode));
+    struct ListNode* max = (struct ListNode*)malloc(sizeof(struct ListNode));
+    max->val = INT_MAX;
+    max->next = NULL;
 
     if(listsSize == 0)
         return NULL;
+
+    //设置一个最大的堆，用于替代链表最后的空值.
+    for(int i = 0; i < listsSize; i++)
+    {
+        if(lists[i] == NULL)
+            lists[i] = max;
+    }
     //以k个头结点建立小顶堆
     buildTree(lists, listsSize);
+    struct ListNode* cur = head;
 
 
-    head->next = lists[0];
-    struct ListNode* cur = head->next;
-    lists[0] = lists[0]->next;
-    int index = 0;
-
-    while (lists[0] != NULL)
+    while (lists[0] != max)
     {
         cur->next = lists[0];
+        cur = lists[0];
         lists[0] = lists[0]->next;
+
+        if(lists[0] == NULL)
+            lists[0] = max;
+
         adjustTree(lists,listsSize,0);
     }
+    cur->next = NULL;
 
     return head->next;
-
-
 }
