@@ -3,6 +3,9 @@
 //
 
 #include <malloc.h>
+#include <algorithm>
+
+using namespace std;
 
 void quickSort(int* A, int begin, int end)
 {
