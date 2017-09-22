@@ -3,11 +3,9 @@
 //
 
 #include <malloc.h>
-#include <algorithm>
 
-using namespace std;
 
-void quickSort(int* A, int begin, int end)
+void qquickSort(int* A, int begin, int end)
 {
     if(begin >= end)
         return;
@@ -28,8 +26,8 @@ void quickSort(int* A, int begin, int end)
 
     A[left] = flag;
 
-    quickSort(A, begin, left-1);
-    quickSort(A, left+1, end);
+    qquickSort(A, begin, left-1);
+    qquickSort(A, left+1, end);
 }
 
 
@@ -47,7 +45,7 @@ int** fourSum(int* nums, int numsSize, int target, int* returnSize) {
         return result;
     }
 
-    quickSort(nums, 0, numsSize - 1);
+    qquickSort(nums, 0, numsSize - 1);
 
     int top = 0;
     int sum = 0;
