@@ -4,6 +4,7 @@
 // 如果A1>An，同理，移动An到A（n-1）.不断比较Ai和Aj，直到i==j.
 // 总体思路类似于夹逼定理，记录最大的容器，
 
+
 int maxArea(int* height, int heightSize) {
 
     int left = 0, right = heightSize - 1;

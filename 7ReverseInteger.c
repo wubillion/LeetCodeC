@@ -6,7 +6,6 @@
 
 #include <limits.h>
 
-
 int reverse(int x) {
     const int MAX = INT_MAX;
     int flag = x > 0 ? 1 : -1;
@@ -26,6 +25,6 @@ int reverse(int x) {
 
         temp = temp / 10;
     }
+
     return result*flag;
 }
-
