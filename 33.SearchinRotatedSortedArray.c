@@ -4,8 +4,6 @@
 //
 #include <stdio.h>
 
-
-
 int binarySearch(int *nums, int start, int stop, int target)
 {
     int left = start, right = stop;
@@ -67,11 +65,4 @@ int search(int* nums, int numsSize, int target)
         return result2;
 
     return -1;
-}
-
-int main()
-{
-    int a[] = {4,5,6,7,0,1,2};
-    int result = search(a,7,3);
-    printf("%d\n",result);
 }
