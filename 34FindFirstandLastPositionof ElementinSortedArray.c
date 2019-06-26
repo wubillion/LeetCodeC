@@ -78,13 +78,3 @@ int* searchRange(int* nums, int numsSize, int target, int* returnSize)
 }
 
 
-int main()
-{
-    int a[] = {2,2};
-    int *resultSize = NULL;
-    int *result = (int*)malloc(2*sizeof(int));
-    result = searchRange(a,2,2,resultSize);
-    printf("%d %d\n",result[0],result[1]);
-
-    return 0;
-}
